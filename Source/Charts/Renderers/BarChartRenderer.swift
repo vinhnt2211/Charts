@@ -424,6 +424,12 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
             
 //            context.fill(barRect)
+            if(index == 0){
+                barRect.origin.y = barRect.origin.y - 2.5
+            }else{
+                barRect.origin.y = barRect.origin.y + 2.5
+            }
+            
             let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
             clipPath.fill()
             
@@ -804,7 +810,9 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 prepareBarHighlight(x: e.x, y1: y1, y2: y2, barWidthHalf: barData.barWidth / 2.0, trans: trans, rect: &barRect)
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
-                
+                barRect.origin.y = barRect.origin.y - 2.5
+                let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
+                clipPath.fill()
                 context.fill(barRect)
             }
         }
