@@ -405,7 +405,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 
         for j in stride(from: 0, to: buffer.rects.count, by: 1)
         {
-            let barRect = buffer.rects[j]
+            var barRect = buffer.rects[j]
 
             if (!viewPortHandler.isInBoundsLeft(barRect.origin.x + barRect.size.width))
             {
