@@ -813,7 +813,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 barRect.origin.y = barRect.origin.y - 2.5
                 let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
                 clipPath.fill()
-                context.fill(barRect)
+//                context.fill(barRect)
             }
         }
         
