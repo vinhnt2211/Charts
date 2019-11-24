@@ -426,18 +426,26 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
 //            context.fill(barRect)
             let barData = dataProvider.barData
             let barWidth = barData!.barWidth
-            if(barWidth < 0.5){
-                if(index == 0){
-                    barRect.origin.y = barRect.origin.y - 2.5
-                }else{
-                    barRect.origin.y = barRect.origin.y + 2.5
-                }
-                
-                let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
-                clipPath.fill()
+//            if(barWidth < 0.5){
+//                if(index == 0){
+//                    barRect.origin.y = barRect.origin.y - 2.5
+//                }else{
+//                    barRect.origin.y = barRect.origin.y + 2.5
+//                }
+//
+//                let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
+//                clipPath.fill()
+//            }else{
+//                context.fill(barRect)
+//            }
+            if(index == 0){
+                barRect.origin.y = barRect.origin.y - 2.5
             }else{
-                context.fill(barRect)
+                barRect.origin.y = barRect.origin.y + 2.5
             }
+            
+            let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
+            clipPath.fill()
             
             if drawBorder
             {
@@ -816,16 +824,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 prepareBarHighlight(x: e.x, y1: y1, y2: y2, barWidthHalf: barData.barWidth / 2.0, trans: trans, rect: &barRect)
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
-                let barData = dataProvider.barData
-                let barWidth = barData!.barWidth
-                if(barWidth < 0.5){
-                    barRect.origin.y = barRect.origin.y - 2.5
-                    let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
-                    clipPath.fill()
-                }else{
-                    context.fill(barRect)
-                }
+//                let barData = dataProvider.barData
+//                let barWidth = barData!.barWidth
+//                if(barWidth < 0.5){
+//                    barRect.origin.y = barRect.origin.y - 2.5
+//                    let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
+//                    clipPath.fill()
+//                }else{
+//                    context.fill(barRect)
+//                }
 //                context.fill(barRect)
+                barRect.origin.y = barRect.origin.y - 2.5
+                let clipPath = UIBezierPath(roundedRect: barRect, cornerRadius: CGFloat(15.0))
+                clipPath.fill()
             }
         }
         
